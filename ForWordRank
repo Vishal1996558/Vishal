@@ -1,0 +1,48 @@
+package collectionPkg;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class DictionaryOfWord {
+	List<String> ts=new ArrayList<String>();
+	DictionaryOfWord(List ts){
+		this.ts=ts;
+	}
+	
+	void permutingWords(String str,String ans) {
+		if(str.length()==0) {
+			ts.add(ans);
+		}
+		
+		for(int i=0;i<str.length();i++) {
+			char c= str.charAt(i);
+			String rev=str.substring(0,i)+str.substring(i+1);
+			permutingWords(rev,ans+c);
+		}		
+	}
+	
+	List<String> returning() {
+		return ts;
+	}
+
+	public static void main(String[] args) {
+
+		//how many words are possible with a given word
+		String str="vishal",str1=str;int c=0;boolean flag=false;
+		List<String> ts=new ArrayList<String>();
+		DictionaryOfWord df=new DictionaryOfWord(ts);
+		df.permutingWords(str,"");
+		ts=df.returning();
+		Collections.sort(ts);
+	for(String st:ts) {
+		if(!st.equals(str1))
+		c++;
+		else 
+			break;
+		}
+	System.out.print(c+1);
+	}
+}
