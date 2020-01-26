@@ -3,8 +3,6 @@ package collectionPkg;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class DictionaryOfWord {
 	List<String> ts=new ArrayList<String>();
